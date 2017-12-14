@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AJAlertController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="desktop" translatesAutoresizingMaskIntoConstraints="NO" id="zcn-Mw-am6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKF-tK-8QY">
+                                <rect key="frame" x="87.5" y="537.5" width="200" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="3nL-lV-5pe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Alert with OK,Cancel">
+                                    <color key="titleColor" red="0.0" green="0.58728837970000003" blue="0.53270089629999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnShowAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W12-Zg-f2Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEC-V1-GR2">
+                                <rect key="frame" x="87" y="590" width="200" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="qbY-MS-7Kg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Normal Alert">
+                                    <color key="titleColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnNormalAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="juc-P3-nTh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zcn-Mw-am6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8RZ-he-c8y"/>
+                            <constraint firstItem="DEC-V1-GR2" firstAttribute="centerX" secondItem="qKF-tK-8QY" secondAttribute="centerX" id="K5a-1K-M8G"/>
+                            <constraint firstItem="zcn-Mw-am6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q33-y8-AvL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DEC-V1-GR2" secondAttribute="bottom" constant="45" id="Qpg-2p-fnB"/>
+                            <constraint firstItem="DEC-V1-GR2" firstAttribute="top" secondItem="qKF-tK-8QY" secondAttribute="bottom" constant="20" id="Wi5-0j-pD3"/>
+                            <constraint firstItem="qKF-tK-8QY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bKR-ZG-0xs"/>
+                            <constraint firstItem="zcn-Mw-am6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nLd-OP-Nfl"/>
+                            <constraint firstItem="zcn-Mw-am6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vHo-rh-GHi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="desktop" width="368" height="688"/>
+    </resources>
+</document>
