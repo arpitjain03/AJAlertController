@@ -19,7 +19,6 @@ class AJAlertController: UIViewController {
     private var btnCancelTitle:String?
     private var btnOtherTitle:String?
     
-    /// Set color for your buttons
     private let btnOtherColor  = UIColor(red: 0/255.0, green: 120.0/255.0, blue: 108.0/255.0, alpha: 1.0)
     private let btnCancelColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
     
