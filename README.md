@@ -3,9 +3,9 @@ AJAlertController is a simple, customizable alert view written in Swift.
 It is well managed for working on all screens and devices supporting iOS 9.0 and later.
 
 
-![GIF1](https://media.giphy.com/media/xTcf1cCvsQs8ahUo6s/giphy.gif)
+![GIF1](https://media.giphy.com/media/xUOxeVZXc0Rm4C3koo/giphy.gif)
  &nbsp; &nbsp; 
-![GIF2](https://media.giphy.com/media/3o7qiNeGt6Wcb31W5q/giphy.gif
+![GIF2](https://media.giphy.com/media/xUOxflB6W2hj5R74WI/giphy.gif)
 
 
 ## Requirements
