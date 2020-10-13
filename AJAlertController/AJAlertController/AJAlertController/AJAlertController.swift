@@ -19,8 +19,8 @@ class AJAlertController: UIViewController {
     private var btnCancelTitle:String?
     private var btnOtherTitle:String?
     
-    private let btnOtherColor  = UIColor(red: 0/255.0, green: 120.0/255.0, blue: 108.0/255.0, alpha: 1.0)
-    private let btnCancelColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+    private let btnOtherColor  = UIColor.systemBlue
+    private let btnCancelColor = UIColor.systemRed
     
     // MARK:- Public Properties
     // MARK:-
@@ -45,8 +45,7 @@ class AJAlertController: UIViewController {
      Creates a instance for using AJAlertController
      - returns: AJAlertController
      */
-    static func initialization() -> AJAlertController
-    {
+    static func initialization() -> AJAlertController {
         let alertController = AJAlertController(nibName: "AJAlertController", bundle: nil)
         return alertController
     }
@@ -60,7 +59,7 @@ class AJAlertController: UIViewController {
     // MARK:-
     
     /// Inital View Setup
-    private func setupAJAlertController(){
+    private func setupAJAlertController() {
         
         let visualEffectView   = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         visualEffectView.alpha = 0.8
@@ -104,8 +103,7 @@ class AJAlertController: UIViewController {
     }
     
     /// Setup different widths for iPad and iPhone
-    private func preferredAlertWidth()
-    {
+    private func preferredAlertWidth() {
         switch UIDevice.current.userInterfaceIdiom {
             case .phone:
                 alertWidthConstraint.constant = 280.0
@@ -114,20 +112,20 @@ class AJAlertController: UIViewController {
             case .unspecified: break
             case .tv: break
             case .carPlay: break
+            case .mac: break
+        @unknown default:break
         }
     }
     
     /// Create and Configure Alert Controller
-    private func configure(message:String, btnCancelTitle:String?, btnOtherTitle:String?)
-    {
+    private func configure(message:String, btnCancelTitle:String?, btnOtherTitle:String?) {
         self.strAlertText          = message
         self.btnCancelTitle     = btnCancelTitle
         self.btnOtherTitle    = btnOtherTitle
     }
     
     /// Show Alert Controller
-    private func show()
-    {
+    private func show() {
         if let appDelegate = UIApplication.shared.delegate, let window = appDelegate.window, let rootViewController = window?.rootViewController {
             
             var topViewController = rootViewController
@@ -135,10 +133,10 @@ class AJAlertController: UIViewController {
                 topViewController = topViewController.presentedViewController!
             }
             
-            topViewController.addChildViewController(self)
+            topViewController.addChild(self)
             topViewController.view.addSubview(view)
             viewWillAppear(true)
-            didMove(toParentViewController: topViewController)
+            didMove(toParent: topViewController)
             view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             view.alpha = 0.0
             view.frame = topViewController.view.bounds
@@ -159,8 +157,7 @@ class AJAlertController: UIViewController {
     }
     
     /// Hide Alert Controller
-    private func hide()
-    {
+    private func hide() {
         self.view.endEditing(true)
         self.viewAlert.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: { () -> Void in
@@ -175,7 +172,7 @@ class AJAlertController: UIViewController {
         }) { (completed) -> Void in
             
             self.view.removeFromSuperview()
-            self.removeFromParentViewController()
+            self.removeFromParent()
         }
     }
     
@@ -192,50 +189,37 @@ class AJAlertController: UIViewController {
         hide()
     }
     
-    @IBAction func btnOkTapped(sender: UIButton) 
-    {
+    @IBAction func btnOkTapped(sender: UIButton) {
         block!!(0,"OK")
         hide()
     }
     
     /// Hide Alert Controller on background tap
-    @objc func backgroundViewTapped(sender:AnyObject)
-    {
+    @objc func backgroundViewTapped(sender:AnyObject) {
         hide()
     }
 
     // MARK:- AJAlert Functions
     // MARK:-
-
-    /**
-     Display an Alert
-     
-     - parameter aStrMessage:    Message to display in Alert
-     - parameter aCancelBtnTitle: Cancel button title
-     - parameter aOtherBtnTitle: Other button title
-     - parameter otherButtonArr: Array of other button title
-     - parameter completion:     Completion block. Other Button Index - 1 and Cancel Button Index - 0
-     */
     
-    public func showAlert( aStrMessage:String,
-                    aCancelBtnTitle:String?,
-                    aOtherBtnTitle:String? ,
-                    completion : alertCompletionBlock){
-        configure( message: aStrMessage, btnCancelTitle: aCancelBtnTitle, btnOtherTitle: aOtherBtnTitle)
+    /// Display an Alert
+    /// - Parameters:
+    ///   - message: Message to display in Alert
+    ///   - cancelButton: Cancel button title
+    ///   - otherButton: Other button title
+    ///   - completion: Completion block. Other Button Index - 1 and Cancel Button Index - 0
+    public func showAlert( message:String, cancelButton:String?, otherButton:String?, completion : alertCompletionBlock) {
+        configure( message: message, btnCancelTitle: cancelButton, btnOtherTitle: otherButton)
         show()
         block = completion
     }
     
-    /**
-     Display an Alert With "OK" Button
-     
-     - parameter aStrMessage: Message to display in Alert
-     - parameter completion:  Completion block. OK Button Index - 0
-     */
-    
-    public func showAlertWithOkButton( aStrMessage:String,
-                                completion : alertCompletionBlock){
-        configure(message: aStrMessage, btnCancelTitle: nil, btnOtherTitle: nil)
+    /// Display an Alert With "OK" Button
+    /// - Parameters:
+    ///   - aStrMessage: Message to display in Alert
+    ///   - completion: Completion block. OK Button Index - 0
+    public func showAlertWithOkButton( message:String, completion : alertCompletionBlock){
+        configure(message: message, btnCancelTitle: nil, btnOtherTitle: nil)
         show()
         block = completion
     }

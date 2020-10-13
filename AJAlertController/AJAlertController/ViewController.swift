@@ -19,13 +19,13 @@ class ViewController: UIViewController {
     }
 
     func showAlertWithVC(){
-        AJAlertController.initialization().showAlert(aStrMessage: "This is Alert message with two buttons", aCancelBtnTitle: "NO", aOtherBtnTitle: "YES") { (index, title) in
+        AJAlertController.initialization().showAlert(message: "This is Alert message with two buttons", cancelButton: "NO", otherButton: "YES") { (index, title) in
             print(index,title)
         }
     }
     
     func showAlertWithOkButton(){
-        AJAlertController.initialization().showAlertWithOkButton(aStrMessage: "This is normal alert message") { (index, title) in
+        AJAlertController.initialization().showAlertWithOkButton(message: "This is normal alert message") { (index, title) in
              print(index,title)
         }
     }
