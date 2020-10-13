@@ -30,19 +30,15 @@ You can find this example in the project repo. To see it in action clone the rep
  
 ```swift
 /// Pass alert message, cancel button title, other button title
-AJAlertController.initialization().showAlert(aStrMessage: "This is Alert message with two buttons", 
-                                             aCancelBtnTitle: "NO", 
-                                             aOtherBtnTitle: "YES") 
-{ (index, title) in
+AJAlertController.initialization().showAlert(message: "This is Alert message with two buttons", cancelButton: "NO", otherButton: "YES") { (index, title) in
     print(index,title)
 }
 ```
 
 ```swift
 /// Pass alert message
-AJAlertController.initialization().showAlertWithOkButton(aStrMessage: "This is normal alert message") 
-{ (index, title) in
-    print(index,title)
+AJAlertController.initialization().showAlertWithOkButton(message: "This is normal alert message") { (index, title) in
+     print(index,title)
 }
 ```
 
@@ -57,17 +53,13 @@ AJAlertController.initialization()
 ### Display an Alert
 
 ```swift
-public func showAlert( aStrMessage: String,
-                       aCancelBtnTitle: String?,
-                       aOtherBtnTitle: String? ,
-                       completion : alertCompletionBlock) 
+public func showAlert( message:String, cancelButton:String?, otherButton:String?, completion : alertCompletionBlock) 
 ```
 
 ### Display an Alert with OK Button
 
 ```swift
-public func showAlertWithOkButton( aStrMessage:String,
-                                   completion : alertCompletionBlock)
+public func showAlertWithOkButton( message:String, completion : alertCompletionBlock)
 ```
 
 ## License
